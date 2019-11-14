@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-import SearchService from "../services/search"
+import MoviesService from "../services/movies"
 
 export class SearchForm extends Component {
   constructor() {
     super()
-    this.service = new SearchService()
+    this.service = new MoviesService()
   }
 
   state = {
@@ -20,8 +20,8 @@ export class SearchForm extends Component {
 
   _handleSubmit = async e => {
     e.preventDefault()
-    const movie = await this.service.makeMovieSearch(this.state.inputMovie)
-    const { Search } = movie
+    const movie = await this.service.getMovies(this.state.inputMovie)
+    const { Search = [] } = movie
 
     this.props.onResults(Search)
   };

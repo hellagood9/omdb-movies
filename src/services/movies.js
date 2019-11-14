@@ -9,8 +9,12 @@ export default class SearchService {
     });
   }
 
-  makeMovieSearch = async searchTerm => {
+  getMovies = async searchTerm => {
     const movieSearchResult = await this.service.get(`${searchTerm}`);
     return movieSearchResult.data;
   };
+
+  getMovie = async movieId => {
+    const movie = await this.service.get(``)
+  }
 }
