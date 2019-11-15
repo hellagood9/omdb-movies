@@ -2,21 +2,23 @@ import React, { Component } from "react";
 import "./App.css";
 import "bulma/css/bulma.css";
 
-// import { Title } from "./elements/Title";
-
-// import { MovieDetail } from "./pages/MovieDetail"
-
-// import { SearchForm } from "./components/SearchForm";
-// import { MoviesList } from "./components"
+import { Switch, Route } from "react-router-dom";
 
 import { Home } from "./pages/Home";
 import { MovieDetail } from "./pages/MovieDetail";
+import { NotFound } from "./pages/NotFound";
 
 class App extends Component {
   render() {
-    return <div className="App">
-      <Home />
-    </div>;
+    return (
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/detail/:id" component={MovieDetail} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+    );
   }
 }
 
