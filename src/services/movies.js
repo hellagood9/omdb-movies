@@ -1,11 +1,9 @@
 import axios from "axios";
 
-const API_KEY = "450616a0";
-
 export default class SearchService {
   constructor() {
     this.service = axios.create({
-      baseURL: "http://www.omdbapi.com/?apikey=" + API_KEY + "&"
+      baseURL: "http://www.omdbapi.com/?apikey=" + process.env.REACT_APP_OMDB_API_KEY + "&"
     });
   }
 
